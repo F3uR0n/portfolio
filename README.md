@@ -38,30 +38,3 @@ Install dependencies and run the development server:
 npm install
 npm run dev
 ```
-
-Open http://localhost:3000 to view the site.
-
-## Customization
-
-Most content is configured in [data/portfolio.ts](data/portfolio.ts). Update the following as needed:
-
-- `personalInfo` for name, title, bio, and social links
-- `skills`, `education`, `experience` arrays
-- `projects` list for featured and other work
-
-## Contact Form
-
-The contact form submits to the API route at [app/api/contact/route.ts](app/api/contact/route.ts). Adjust validation and handling there if you want to change behavior.
-
-## Scripts
-
-Common commands:
-
-- `npm run dev` - Start the local dev server
-- `npm run build` - Build for production
-- `npm run start` - Run the production build
-- `npm run lint` - Run lint checks
-
-## Deployment
-
-Deploy with any platform that supports Next.js. Build output uses the standard Next.js build pipeline.
