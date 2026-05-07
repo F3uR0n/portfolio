@@ -101,30 +101,6 @@ export const experience = [
       "Deep-dived into advanced data structures (trees, graphs, heaps, hash maps) and algorithm design (dynamic programming, greedy, divide & conquer, graph traversal).",
     tags: ["Java", "Algorithms", "DSA", "Graph Theory"],
   },
-  {
-    role: "Numerical Methods",
-    institution: "BRAC University — CSE330",
-    period: "Fall 2025",
-    description:
-      "Implemented numerical algorithms computationally — root finding, interpolation, numerical integration, and ODEs — using Python and Jupyter notebooks.",
-    tags: ["Python", "Mathematics", "Jupyter", "Numerical Computing"],
-  },
-  {
-    role: "Programming Fundamentals I & II",
-    institution: "BRAC University — CSE110 / CSE111",
-    period: "Spring & Summer 2024",
-    description:
-      "Built a strong OOP foundation in Java — classes, inheritance, polymorphism, interfaces, collections, and design patterns.",
-    tags: ["Java", "OOP", "Software Design"],
-  },
-  {
-    role: "Programming Fundamentals I & II",
-    institution: "BRAC University — CSE110 / CSE111",
-    period: "Spring & Summer 2024",
-    description:
-      "Built a strong OOP foundation in Java — classes, inheritance, polymorphism, interfaces, collections, and design patterns.",
-    tags: ["Java", "OOP", "Software Design"],
-  },
 ];
 
 export const projects = [
@@ -145,19 +121,10 @@ export const projects = [
       "Full-stack web application for diabetes risk assessment. Flask backend serves a trained ML model with real-time predictions. Includes healthcare AI features built with scikit-learn.",
     tech: ["Python", "Flask", "Scikit-Learn", "Healthcare AI"],
     github: "https://github.com/F3uR0n/diabetes-prediction-ml-flask",
-    live: null,
+    live: "https://diabetes-predictor-7x8i.onrender.com/",
     featured: true,
     isPrivate: false,
-  },
-  {
-    name: "Diabetes Prediction — ML Model",
-    description:
-      "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
-    tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
-    github: "https://github.com/F3uR0n/diabetes-prediction-ml",
-    live: null,
-    featured: true,
-    isPrivate: false,
+    screenshot: "/diabetes-prediction-flask.png",
   },
   {
     name: "Smart Blood Donor System",
@@ -165,6 +132,17 @@ export const projects = [
       "A system to connect blood donors with recipients, streamlining the process of finding compatible donors in emergencies.",
     tech: ["JavaScript", "Node.js"],
     github: "https://github.com/F3uR0n/smart-blood-donor-system",
+    live: null,
+    featured: true,
+    isPrivate: false,
+    screenshot: "/smart-blood-donor.png",
+  },
+  {
+    name: "Diabetes Prediction — ML Model",
+    description:
+      "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
+    tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
+    github: "https://github.com/F3uR0n/diabetes-prediction-ml",
     live: null,
     featured: false,
     isPrivate: false,
