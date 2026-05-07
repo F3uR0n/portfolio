@@ -2,26 +2,316 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Custom cursor ── */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  cursor: none;
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* ── Custom cursor element ── */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #00d4ff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff40;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #00d4ff80;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.2s, height 0.2s, border-color 0.2s;
+}
+
+body.cursor-hover .cursor-dot {
+  width: 12px;
+  height: 12px;
+  background: #a3ff12;
+  box-shadow: 0 0 15px #a3ff12, 0 0 30px #a3ff1240;
+}
+
+body.cursor-hover .cursor-ring {
+  width: 48px;
+  height: 48px;
+  border-color: #a3ff12;
+}
+
+/* ── Scanline overlay ── */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+}
+
+/* ── CRT scanline moving bar ── */
+.scanline-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(transparent, rgba(0, 212, 255, 0.08), transparent);
+  pointer-events: none;
+  z-index: 101;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% { top: -3px; }
+  100% { top: 100vh; }
+}
+
+/* ── Grid background ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Glitch text effect ── */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  color: #00d4ff;
+  animation: glitch1 2.5s infinite;
+}
+
+.glitch-text::after {
+  color: #a3ff12;
+  animation: glitch2 2.5s infinite;
+}
+
+@keyframes glitch1 {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  92% { clip-path: inset(10% 0 60% 0); transform: translate(-3px, 1px); }
+  94% { clip-path: inset(50% 0 20% 0); transform: translate(3px, -1px); }
+  96% { clip-path: inset(30% 0 40% 0); transform: translate(-2px, 2px); }
+  98% { clip-path: inset(70% 0 5% 0); transform: translate(2px, -2px); }
+}
+
+@keyframes glitch2 {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  92% { clip-path: inset(60% 0 10% 0); transform: translate(3px, -1px); }
+  94% { clip-path: inset(20% 0 50% 0); transform: translate(-3px, 1px); }
+  96% { clip-path: inset(40% 0 30% 0); transform: translate(2px, -2px); }
+  98% { clip-path: inset(5% 0 70% 0); transform: translate(-2px, 2px); }
+}
+
+/* ── Terminal typing cursor ── */
+.type-cursor::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+  color: #00d4ff;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Cyber card ── */
+.cyber-card {
+  background: #0f0f0f;
+  border: 1px solid #1c1c1c;
+  position: relative;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.cyber-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00d4ff40, transparent);
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.cyber-card:hover {
+  border-color: #00d4ff40;
+  box-shadow: 0 0 20px #00d4ff10, 0 4px 40px rgba(0,0,0,0.4);
+}
+
+.cyber-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Neon text ── */
+.neon-cyan {
+  color: #00d4ff;
+  text-shadow: 0 0 10px #00d4ff80;
+}
+
+.neon-lime {
+  color: #a3ff12;
+  text-shadow: 0 0 10px #a3ff1280;
+}
+
+/* ── Cyber button ── */
+.cyber-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.cyber-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  transition: left 0.4s;
+}
+
+.cyber-btn:hover::before {
+  left: 100%;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00d4ff40;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff80;
+}
+
+/* ── Section divider ── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00d4ff20, #00d4ff60, #00d4ff20, transparent);
+}
+
+/* ── Tag ── */
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border: 1px solid #1c1c1c;
+  font-family: var(--font-space-mono);
+  font-size: 0.7rem;
+  color: #6b7280;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.tech-tag:hover {
+  border-color: #00d4ff60;
+  color: #00d4ff;
+}
+
+/* ── Horizontal scroll strip ── */
+.scroll-track {
+  display: flex;
+  animation: scrollX 30s linear infinite;
+}
+
+.scroll-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Corner accent ── */
+.corner-tl::before,
+.corner-br::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: #00d4ff;
+  border-style: solid;
+}
+
+.corner-tl::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.corner-br::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+/* ── Loading screen ── */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Selection ── */
+::selection {
+  background: #00d4ff30;
+  color: #00d4ff;
+}
+
+/* ── Light mode overrides ── */
+.light body {
+  background-color: #f5f5f0;
+  color: #0a0a0a;
 }
