@@ -107,7 +107,7 @@ export const projects = [
   {
     name: "Kalo Rituals",
     description:
-      "A horror-themed dual survival game built with OpenGL. Real-time 3D rendering, ghost AI with timed visibility and stun states, two-floor level design with teleport pad transitions, first/third-person camera toggle, ritual artifact collection, health system, HUD, and difficulty selection.",
+      "A horror-themed dual survival game built with OpenGL. Real-time 3D rendering, ghost AI with timed visibility and stun states, two-floor level design with teleport pad transitions, first/third-person camera toggle, ritual artifact collection, health system, HUD and difficulty selection.",
     tech: ["Python", "OpenGL", "GLUT", "PyOpenGL", "Computer Graphics"],
     github: null,
     live: null,
@@ -138,6 +138,15 @@ export const projects = [
     screenshot: "/smart-blood-donor.png",
   },
   {
+    name: "Rizz Bot",
+    description: "Rizz Bot is a Discord bot that tracks chat activity, awards rizz levels and provides troll interactions with optional image roasts. It uses slash commands and message events to deliver stats and light-hearted trolling within a server.",
+    tech: ["JavaScript", "Node.js", "Discord.js"],
+    github: "https://github.com/F3uR0n/rizz-bot",
+    live: null,
+    featured: true,
+    isPrivate: false,
+  },
+  {
     name: "Diabetes Prediction — ML Model",
     description:
       "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
@@ -145,6 +154,15 @@ export const projects = [
     github: "https://github.com/F3uR0n/diabetes-prediction-ml",
     live: null,
     featured: false,
+    isPrivate: false,
+  },
+  {
+    name: "Snake Game",
+    description: "A classic Snake game built using Python and the Turtle graphics module. Guide the snake to eat food, grow longer and avoid collisions with walls or itself. This project demonstrates game logic, animation, collision detection and user input handling in Python.",
+    tech: ["Python"],
+    github: "https://github.com/F3uR0n/snake-game",
+    live: null,
+    featured: true,
     isPrivate: false,
   },
   {

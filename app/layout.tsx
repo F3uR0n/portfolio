@@ -17,7 +17,7 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Farhan Sadik — CS Student & Builder",
+  title: "Farhan Sadik",
   description:
     "Portfolio of Farhan Sadik (F3uR0n) — Computer Science student at BRAC University. Building AI/ML systems, 3D games, and modern web applications.",
   keywords: ["Farhan Sadik", "F3uR0n", "Portfolio", "Computer Science", "BRAC University", "Machine Learning", "OpenGL"],
