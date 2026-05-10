@@ -6,9 +6,14 @@ import Image from "next/image";
 
 const gifs = [
   { src: "/gifs/cat-typing-code.gif", caption: "me coding at 2am", alt: "cat typing code" },
+  { src: "/gifs/fahh.gif", caption: "when deadline is near", alt: "fahh" },
   { src: "/gifs/breaking-pc.gif", caption: "when npm install fails", alt: "breaking pc" },
-  { src: "/gifs/cat-typing-code.gif", caption: "shipping the feature", alt: "cat typing code" },
-  { src: "/gifs/breaking-pc.gif", caption: "debugging production", alt: "breaking pc" },
+  { src: "/gifs/cat-flash.gif", caption: "At night", alt: "cat flash" },
+
+  { src: "/gifs/cat-typing-code.gif", caption: "me coding at 2am", alt: "cat typing code" },
+  { src: "/gifs/fahh.gif", caption: "when deadline is near", alt: "fahh" },
+  { src: "/gifs/breaking-pc.gif", caption: "when npm install fails", alt: "breaking pc" },
+  { src: "/gifs/cat-flash.gif", caption: "At night", alt: "cat flash" },
 ];
 
 const allGifs = [...gifs, ...gifs];
@@ -27,7 +32,7 @@ export default function GifStrip() {
         transition={{ duration: 0.8 }}
         className="mb-8 text-center"
       >
-        <span className="font-mono text-xs text-[#3a3a3a] tracking-widest">// PERSONALITY STRIP</span>
+        <span className="font-mono text-xs text-[#b8b7b7] tracking-widest">GIF can talk</span>
       </motion.div>
 
       {/* Scrolling strip */}
@@ -52,7 +57,7 @@ export default function GifStrip() {
                     unoptimized
                   />
                 </div>
-                <div className="px-3 py-2 font-mono text-xs text-[#3a3a3a] text-center truncate">
+                <div className="px-3 py-2 font-mono text-xs text-[#919191] text-center truncate">
                   {gif.caption}
                 </div>
               </div>

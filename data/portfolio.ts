@@ -147,13 +147,12 @@ export const projects = [
     isPrivate: false,
   },
   {
-    name: "Diabetes Prediction — ML Model",
-    description:
-      "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
-    tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
-    github: "https://github.com/F3uR0n/diabetes-prediction-ml",
-    live: null,
-    featured: false,
+    name: "Crypto API Host",
+    description: "Nebula Markets is a focused front-end project that visualizes crypto market movement with clarity. It blends rich filtering and charting with a modern UI to surface market trends at a glance. Built to showcase clean API integration and data visualization without backend complexity.",
+    tech: ["JavaScript"],
+    github: "https://github.com/F3uR0n/crypto-api-host",
+    live: "https://f3ur0n.github.io/crypto-api-host/",
+    featured: true,
     isPrivate: false,
   },
   {
@@ -163,6 +162,21 @@ export const projects = [
     github: "https://github.com/F3uR0n/snake-game",
     live: null,
     featured: true,
+    isPrivate: false,
+  },
+
+
+
+
+
+  {
+    name: "Diabetes Prediction — ML Model",
+    description:
+      "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
+    tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
+    github: "https://github.com/F3uR0n/diabetes-prediction-ml",
+    live: null,
+    featured: false,
     isPrivate: false,
   },
   {
