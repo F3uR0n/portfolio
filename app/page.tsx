@@ -7,6 +7,7 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
+import CourseRepos from "@/components/CourseRepos";
 import Education from "@/components/Education";
 import GifStrip from "@/components/GifStrip";
 import Contact from "@/components/Contact";
@@ -32,6 +33,7 @@ export default function Home() {
         <Skills />
         <Experience />
         <Projects />
+        <CourseRepos />
         <Education />
         <GifStrip />
         <Contact />

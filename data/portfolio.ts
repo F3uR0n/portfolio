@@ -103,6 +103,63 @@ export const experience = [
   },
 ];
 
+export const courseRepos = [
+  {
+    name: "Numerical Methods",
+    course: "CSE330",
+    github: "https://github.com/F3uR0n/brac-cse330-numerical-methods",
+    tech: ["Python", "NumPy", "Pandas", "Matplotlib"],
+  },
+  {
+    name: "Artificial Intelligence",
+    course: "CSE422",
+    github: "https://github.com/F3uR0n/brac-cse422-artificial-intelligence",
+    tech: ["Python", "Scikit-Learn", "ML", "AI"],
+  },
+  {
+    name: "Database Systems",
+    course: "CSE370",
+    github: "https://github.com/F3uR0n/brac-cse370-database-systems",
+    tech: ["MySQL", "Database Design", "SQL Queries"],
+  },
+  {
+    name: "Computer Graphics",
+    course: "CSE423",
+    github: "https://github.com/F3uR0n/brac-cse423-computer-graphics",
+    tech: ["Python", "OpenGL", "GLUT", "PyOpenGL", "3D Rendering"],
+  },
+  {
+    name: "Algorithms Theory",
+    course: "CSE221",
+    github: "https://github.com/F3uR0n/brac-cse221-algorithms-theory",
+    tech: ["DSA"],
+  },
+  {
+    name: "Algorithms Lab",
+    course: "CSE221",
+    github: "https://github.com/F3uR0n/brac-cse221-algorithms-lab",
+    tech: ["DSA"],
+  },
+  {
+    name: "Data Structures Theory",
+    course: "CSE220",
+    github: "https://github.com/F3uR0n/brac-cse220-data-structures-theory",
+    tech: ["DSA"],
+  },
+  {
+    name: "Data Structures Lab",
+    course: "CSE220",
+    github: "https://github.com/F3uR0n/brac-cse220-data-structures-lab",
+    tech: ["DSA"],
+  },
+  {
+    name: "Mathematics and Natural Sciences",
+    course: "MAT110 MAT120 MAT215 MAT216 PHY111 PHY112",
+    github: "https://github.com/F3uR0n/brac-cse221-algorithms-lab",
+    tech: ["Math", "Physics"],
+  },
+];
+
 export const projects = [
   {
     name: "Kalo Rituals",
@@ -161,38 +218,15 @@ export const projects = [
     tech: ["Python"],
     github: "https://github.com/F3uR0n/snake-game",
     live: null,
-    featured: true,
+    featured: false,
     isPrivate: false,
   },
-
-
-
-
-
   {
     name: "Diabetes Prediction — ML Model",
     description:
       "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
     tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
     github: "https://github.com/F3uR0n/diabetes-prediction-ml",
-    live: null,
-    featured: false,
-    isPrivate: false,
-  },
-  {
-    name: "Pong Game",
-    description: "Classic Pong game implemented in Python with a clean game loop architecture and smooth physics.",
-    tech: ["Python"],
-    github: "https://github.com/F3uR0n/pong-game",
-    live: null,
-    featured: false,
-    isPrivate: false,
-  },
-  {
-    name: "Robo Voice",
-    description: "A text-to-speech robot voice application. Lets the robot speak — because why type when you can make it talk?",
-    tech: ["Python"],
-    github: "https://github.com/F3uR0n/robo-voice",
     live: null,
     featured: false,
     isPrivate: false,
