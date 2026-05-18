@@ -174,7 +174,7 @@ export default function Projects() {
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {project.tech.map((t) => (
-                  <span key={t} className="font-mono text-xs px-2 py-0.5 border border-[#1c1c1c] text-[#3a3a3a]">
+                  <span key={t} className="font-mono text-xs px-2 py-0.5 border border-[#1c1c1c] text-[#6b7280] hover:border-[#00d4ff60] hover:text-[#00d4ff] transition-all">
                     {t}
                   </span>
                 ))}

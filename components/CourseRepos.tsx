@@ -50,7 +50,7 @@ export default function CourseRepos() {
           transition={{ duration: 0.6 }}
           className="flex items-center gap-4 mb-16"
         >
-          <span className="font-mono text-xs text-[#00d4ff] tracking-widest">05</span>
+          <span className="font-mono text-xs text-[#00d4ff] tracking-widest">06</span>
           <div className="section-divider flex-1" />
           <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-[#e0e0e0]">
             COURSE REPOS
@@ -84,8 +84,7 @@ export default function CourseRepos() {
                   {/* Top row: course badge + GitHub link */}
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2 min-w-0">
-                      <BookOpen size={12} className="text-[#a3ff12] shrink-0" />
-                      <span className="font-mono text-xs text-[#a3ff12] truncate">
+                      <span className="font-mono text-xs text-[#fcd600] truncate">
                         {repo.course}
                       </span>
                     </div>
@@ -117,8 +116,8 @@ export default function CourseRepos() {
                 {/* Bottom: stars + tech tags */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-1.5">
-                    <Star size={11} className="text-[#a3ff12]" />
-                    <span className="font-mono text-xs text-[#a3ff12]">
+                    <Star size={11} className="text-[#fcd600]" />
+                    <span className="font-mono text-xs text-[#fcd600]">
                       {ghMeta !== undefined ? ghMeta.stars : "—"}
                     </span>
                   </div>
@@ -126,7 +125,7 @@ export default function CourseRepos() {
                     {repo.tech.map((t) => (
                       <span
                         key={t}
-                        className="font-mono text-xs px-2 py-0.5 border border-[#1c1c1c] text-[#3a3a3a]"
+                        className="font-mono text-xs px-2 py-0.5 border border-[#1c1c1c] text-[#6b7280]"
                       >
                         {t}
                       </span>

@@ -60,7 +60,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="flex items-center gap-4 mb-16"
         >
-          <span className="font-mono text-xs text-[#00d4ff] tracking-widest">07</span>
+          <span className="font-mono text-xs text-[#00d4ff] tracking-widest">08</span>
           <div className="section-divider flex-1" />
           <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-[#e0e0e0]">
             CONTACT
@@ -194,7 +194,7 @@ export default function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="font-mono text-xs text-[#a3ff12] border border-[#a3ff1230] px-4 py-3 text-center"
                 >
-                  ✓ MESSAGE SENT — I&apos;ll get back to you soon.
+                  ✓ MESSAGE SENT. I&apos;ll get back to you soon.
                 </motion.div>
               )}
 

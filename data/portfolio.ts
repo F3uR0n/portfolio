@@ -160,6 +160,33 @@ export const courseRepos = [
   },
 ];
 
+export const mlModels = [
+  {
+    name: "Diabetes Prediction - Flask App",
+    description:
+      "Full-stack web application for diabetes risk assessment. Flask backend serves a trained ML model with real-time predictions. Includes healthcare AI features built with scikit-learn.",
+    tech: ["Python", "Flask", "Scikit-Learn", "Healthcare AI"],
+    github: "https://github.com/F3uR0n/diabetes-prediction-ml-flask",
+    live: "https://diabetes-predictor-7x8i.onrender.com/",
+    featured: true,
+    isPrivate: false,
+    screenshot: "/diabetes-prediction-flask.png",
+    metrics: ["Decision Tree", "KNN", "Neural Network", "K-Means"],
+  },
+  {
+    name: "Diabetes Prediction — ML Model",
+    description:
+      "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
+    tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
+    github: "https://github.com/F3uR0n/diabetes-prediction-ml",
+    live: null,
+    featured: false,
+    isPrivate: false,
+    screenshot: null,
+    metrics: [],
+  },
+];
+
 export const projects = [
   {
     name: "Kalo Rituals",
@@ -171,17 +198,6 @@ export const projects = [
     featured: true,
     isPrivate: true,
     screenshot: "/kalo-rituals-1.png",
-  },
-  {
-    name: "Diabetes Prediction — Flask App",
-    description:
-      "Full-stack web application for diabetes risk assessment. Flask backend serves a trained ML model with real-time predictions. Includes healthcare AI features built with scikit-learn.",
-    tech: ["Python", "Flask", "Scikit-Learn", "Healthcare AI"],
-    github: "https://github.com/F3uR0n/diabetes-prediction-ml-flask",
-    live: "https://diabetes-predictor-7x8i.onrender.com/",
-    featured: true,
-    isPrivate: false,
-    screenshot: "/diabetes-prediction-flask.png",
   },
   {
     name: "Smart Blood Donor System",
@@ -217,16 +233,6 @@ export const projects = [
     description: "A classic Snake game built using Python and the Turtle graphics module. Guide the snake to eat food, grow longer and avoid collisions with walls or itself. This project demonstrates game logic, animation, collision detection and user input handling in Python.",
     tech: ["Python"],
     github: "https://github.com/F3uR0n/snake-game",
-    live: null,
-    featured: false,
-    isPrivate: false,
-  },
-  {
-    name: "Diabetes Prediction — ML Model",
-    description:
-      "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
-    tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
-    github: "https://github.com/F3uR0n/diabetes-prediction-ml",
     live: null,
     featured: false,
     isPrivate: false,
