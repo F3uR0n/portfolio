@@ -165,6 +165,7 @@ export const mlModels = [
     name: "Diabetes Prediction - Flask App",
     description:
       "Full-stack web application for diabetes risk assessment. Flask backend serves a trained ML model with real-time predictions. Includes healthcare AI features built with scikit-learn.",
+    course: "",
     tech: ["Python", "Flask", "Scikit-Learn", "Healthcare AI"],
     github: "https://github.com/F3uR0n/diabetes-prediction-ml-flask",
     live: "https://diabetes-predictor-7x8i.onrender.com/",
@@ -177,6 +178,7 @@ export const mlModels = [
     name: "Diabetes Prediction — ML Model",
     description:
       "End-to-end ML workflow with full EDA, multiple algorithm comparison (Decision Tree, KNN, Neural Network, K-Means), and evaluation using accuracy, confusion matrix, and ROC/AUC metrics.",
+    course: "",
     tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
     github: "https://github.com/F3uR0n/diabetes-prediction-ml",
     live: null,

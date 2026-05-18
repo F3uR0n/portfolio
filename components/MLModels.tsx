@@ -61,7 +61,7 @@ export default function MLModels() {
                               {model.course}
                             </span>
                           )}
-                          <span className="font-mono text-xs text-[#3a3a3a]">FEATURED</span>
+                          <span className="font-mono text-xs text-[#3a3a3a]"></span>
                         </div>
                         <h3 className="font-display text-xl sm:text-2xl font-black text-[#e0e0e0] group-hover:text-[#00d4ff] transition-colors">
                           {model.name}

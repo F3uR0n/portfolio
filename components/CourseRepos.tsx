@@ -64,7 +64,7 @@ export default function CourseRepos() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-8"
         >
-          <span className="font-mono text-xs text-[#3a3a3a] tracking-widest">
+          <span className="font-mono text-xs text-[#e9e9e9] tracking-widest">
             ACADEMIC WORK · OPEN SOURCE
           </span>
         </motion.div>
