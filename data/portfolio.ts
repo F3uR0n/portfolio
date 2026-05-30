@@ -93,14 +93,6 @@ export const experience = [
       "Implemented ML pipelines from scratch: data preprocessing, EDA, model training with Decision Tree, KNN, Neural Networks, and K-Means. Evaluated models using accuracy, confusion matrix, and ROC/AUC metrics.",
     tags: ["Python", "Scikit-Learn", "ML", "AI", "Jupyter"],
   },
-  {
-    role: "Algorithms & Data Structures",
-    institution: "BRAC University — CSE220 / CSE221",
-    period: "Spring & Summer 2025",
-    description:
-      "Deep-dived into advanced data structures (trees, graphs, heaps, hash maps) and algorithm design (dynamic programming, greedy, divide & conquer, graph traversal).",
-    tags: ["Java", "Algorithms", "DSA", "Graph Theory"],
-  },
 ];
 
 export const courseRepos = [
@@ -199,6 +191,7 @@ export const projects = [
     live: null,
     featured: true,
     isPrivate: true,
+    inDevelopment: false,
     screenshot: "/kalo-rituals-1.png",
   },
   {
@@ -207,9 +200,10 @@ export const projects = [
       "A system to connect blood donors with recipients, streamlining the process of finding compatible donors in emergencies.",
     tech: ["JavaScript", "Node.js"],
     github: "https://github.com/F3uR0n/smart-blood-donor-system",
-    live: null,
+    live: "https://f3ur0n.42web.io/smart-blood-donor/index.php",
     featured: true,
     isPrivate: false,
+    inDevelopment: true,
     screenshot: "/smart-blood-donor.png",
   },
   {
@@ -220,6 +214,7 @@ export const projects = [
     live: null,
     featured: true,
     isPrivate: false,
+    inDevelopment: true,
   },
   {
     name: "Crypto API Host",

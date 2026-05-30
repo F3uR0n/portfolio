@@ -1,16 +1,39 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { ExternalLink, Lock } from "lucide-react";
+import { ExternalLink, Lock, Hammer, Star } from "lucide-react";
 import { GithubIcon } from "@/components/BrandIcons";
 import { projects } from "@/data/portfolio";
+
+type GithubMeta = { stars: number };
+
+function extractOwnerRepo(url: string): [string, string] | null {
+  const m = url.match(/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?(?:\/.*)?$/);
+  return m ? [m[1], m[2]] : null;
+}
 
 export default function Projects() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [hovered, setHovered] = useState<number | null>(null);
+  const [meta, setMeta] = useState<Record<string, GithubMeta>>({});
+
+  useEffect(() => {
+    projects.forEach(async (project) => {
+      if (!project.github) return;
+      const parsed = extractOwnerRepo(project.github);
+      if (!parsed) return;
+      const [owner, name] = parsed;
+      try {
+        const res = await fetch(`https://api.github.com/repos/${owner}/${name}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        setMeta((prev) => ({ ...prev, [project.github!]: { stars: data.stargazers_count } }));
+      } catch {}
+    });
+  }, []);
 
   const featured = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
@@ -63,6 +86,12 @@ export default function Projects() {
                               PRIVATE
                             </span>
                           )}
+                          {project.inDevelopment && (
+                            <span className="font-mono text-xs text-[#ffaa00] border border-[#ffaa0030] px-2 py-0.5 flex items-center gap-1">
+                              <Hammer size={10} />
+                              IN DEVELOPMENT
+                            </span>
+                          )}
                           <span className="font-mono text-xs text-[#3a3a3a]"></span>
                         </div>
                         <h3 className="font-display text-xl sm:text-2xl font-black text-[#e0e0e0] group-hover:text-[#00d4ff] transition-colors">
@@ -111,6 +140,14 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+                  {project.github && (
+                    <div className="flex items-center gap-1.5 mt-3">
+                      <Star size={11} className="text-[#fcd600]" />
+                      <span className="font-mono text-xs text-[#fcd600]">
+                        {meta[project.github] !== undefined ? meta[project.github].stars : "—"}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Screenshot */}
@@ -172,12 +209,22 @@ export default function Projects() {
                   {project.description}
                 </p>
               </div>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tech.map((t) => (
-                  <span key={t} className="font-mono text-xs px-2 py-0.5 border border-[#1c1c1c] text-[#6b7280] hover:border-[#00d4ff60] hover:text-[#00d4ff] transition-all">
-                    {t}
-                  </span>
-                ))}
+              <div className="space-y-2">
+                {project.github && (
+                  <div className="flex items-center gap-1.5">
+                    <Star size={11} className="text-[#fcd600]" />
+                    <span className="font-mono text-xs text-[#fcd600]">
+                      {meta[project.github] !== undefined ? meta[project.github].stars : "—"}
+                    </span>
+                  </div>
+                )}
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tech.map((t) => (
+                    <span key={t} className="font-mono text-xs px-2 py-0.5 border border-[#1c1c1c] text-[#6b7280] hover:border-[#00d4ff60] hover:text-[#00d4ff] transition-all">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

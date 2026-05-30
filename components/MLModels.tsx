@@ -1,16 +1,39 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { ExternalLink, Brain } from "lucide-react";
+import { ExternalLink, Brain, Star } from "lucide-react";
 import { GithubIcon } from "@/components/BrandIcons";
 import { mlModels } from "@/data/portfolio";
+
+type GithubMeta = { stars: number };
+
+function extractOwnerRepo(url: string): [string, string] | null {
+  const m = url.match(/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?(?:\/.*)?$/);
+  return m ? [m[1], m[2]] : null;
+}
 
 export default function MLModels() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [hovered, setHovered] = useState<number | null>(null);
+  const [meta, setMeta] = useState<Record<string, GithubMeta>>({});
+
+  useEffect(() => {
+    mlModels.forEach(async (model) => {
+      if (!model.github) return;
+      const parsed = extractOwnerRepo(model.github);
+      if (!parsed) return;
+      const [owner, name] = parsed;
+      try {
+        const res = await fetch(`https://api.github.com/repos/${owner}/${name}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        setMeta((prev) => ({ ...prev, [model.github!]: { stars: data.stargazers_count } }));
+      } catch {}
+    });
+  }, []);
 
   const featured = mlModels.filter((m) => m.featured);
   const rest = mlModels.filter((m) => !m.featured);
@@ -122,6 +145,14 @@ export default function MLModels() {
                       </span>
                     ))}
                   </div>
+                  {model.github && (
+                    <div className="flex items-center gap-1.5 mt-3">
+                      <Star size={11} className="text-[#fcd600]" />
+                      <span className="font-mono text-xs text-[#fcd600]">
+                        {meta[model.github] !== undefined ? meta[model.github].stars : "—"}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {model.screenshot && (
@@ -198,12 +229,22 @@ export default function MLModels() {
                       {model.description}
                     </p>
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {model.tech.map((t) => (
-                      <span key={t} className="font-mono text-xs px-2 py-0.5 border border-[#1c1c1c] text-[#6b7280] hover:border-[#00d4ff60] hover:text-[#00d4ff] transition-all">
-                        {t}
-                      </span>
-                    ))}
+                  <div className="space-y-2">
+                    {model.github && (
+                      <div className="flex items-center gap-1.5">
+                        <Star size={11} className="text-[#fcd600]" />
+                        <span className="font-mono text-xs text-[#fcd600]">
+                          {meta[model.github] !== undefined ? meta[model.github].stars : "—"}
+                        </span>
+                      </div>
+                    )}
+                    <div className="flex flex-wrap gap-1.5">
+                      {model.tech.map((t) => (
+                        <span key={t} className="font-mono text-xs px-2 py-0.5 border border-[#1c1c1c] text-[#6b7280] hover:border-[#00d4ff60] hover:text-[#00d4ff] transition-all">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               ))}
