@@ -39,7 +39,7 @@ export const skills = [
   {
     category: "Web & Backend",
     icon: "Globe",
-    items: ["Next.js", "Flask", "REST APIs", "Express"],
+    items: ["Flask", "REST APIs"],
   },
   {
     category: "Database",
@@ -187,10 +187,10 @@ export const projects = [
     description:
       "A horror-themed dual survival game built with OpenGL. Real-time 3D rendering, ghost AI with timed visibility and stun states, two-floor level design with teleport pad transitions, first/third-person camera toggle, ritual artifact collection, health system, HUD and difficulty selection.",
     tech: ["Python", "OpenGL", "GLUT", "PyOpenGL", "Computer Graphics"],
-    github: null,
+    github: "https://github.com/F3uR0n/kalo-rituals",
     live: null,
     featured: true,
-    isPrivate: true,
+    isPrivate: false,
     inDevelopment: false,
     screenshot: "/kalo-rituals-1.png",
   },
@@ -214,7 +214,7 @@ export const projects = [
     live: null,
     featured: true,
     isPrivate: false,
-    inDevelopment: true,
+    inDevelopment: false,
   },
   {
     name: "Crypto API Host",

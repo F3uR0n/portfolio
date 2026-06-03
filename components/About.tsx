@@ -6,9 +6,9 @@ import Image from "next/image";
 import { personalInfo } from "@/data/portfolio";
 
 const stats = [
-  { label: "Course Repositories", value: "12+" },
   { label: "CS Projects", value: "9+" },
   { label: "Languages", value: "5+" },
+  { label: "Course Repositories", value: "12+" },
   { label: "University", value: "BRAC" },
 ];
 
@@ -102,7 +102,6 @@ export default function About() {
                   <div>• <span className="text-[#a3ff12]">AI / Machine Learning</span></div>
                   <div>• <span className="text-[#a3ff12]">Computer Graphics & Games</span></div>
                   <div>• <span className="text-[#a3ff12]">System Design & Architecture</span></div>
-                  <div>• <span className="text-[#a3ff12]">Modern Web Technologies</span></div>
                 </div>
                 <div className="text-[#6b7280] mt-3">
                   <span className="text-[#00d4ff]">Gamer | Builder</span>

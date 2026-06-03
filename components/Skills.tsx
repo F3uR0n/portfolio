@@ -149,8 +149,8 @@ export default function Skills() {
                 { label: "Total Languages", value: "5+", bar: 60 },
                 { label: "Game Skills [R6, Apex, Valorant]", value: "∞", bar: 100 },
                 { label: "Course Repositories", value: "12+", bar: 85 },
-                { label: "ML Libraries", value: "6", bar: 67 },
-                { label: "Projects Built", value: "9+", bar: 80 },
+                { label: "ML Libraries", value: "5", bar: 55 },
+                { label: "Projects Built", value: "9+", bar: 75 },
               ].map((item) => (
                 <div key={item.label} className="space-y-1.5">
                   <div className="flex justify-between font-mono text-xs">
