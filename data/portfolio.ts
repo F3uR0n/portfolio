@@ -24,7 +24,7 @@ export const skills = [
   {
     category: "Languages",
     icon: "Code2",
-    items: ["Python", "Java", "JavaScript", "Node.js", "Express"],
+    items: ["Java", "Python", "JavaScript", "PHP", "HTML", "CSS"],
   },
   {
     category: "AI / ML",
@@ -39,7 +39,7 @@ export const skills = [
   {
     category: "Web & Backend",
     icon: "Globe",
-    items: ["Flask", "REST APIs"],
+    items: ["PHP", "Flask", "REST APIs"],
   },
   {
     category: "Database",
