@@ -101,8 +101,14 @@ export default function Education() {
               "CSE111 — Programming Language II",
               "CSE220 — Data Structures",
               "CSE221 — Algorithms",
+              "CSE230 — Discrete Mathematics",
+              "CSE260 — Digital Logic Design",
+              "CSE320 — Data Communications",
               "CSE330 — Numerical Methods",
+              "CSE331 — Automata and Computability",
+              "CSE370 — Database Systems",
               "CSE422 — Artificial Intelligence",
+              "CSE423 — Computer Graphics",
             ].map((course) => (
               <span
                 key={course}

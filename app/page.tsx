@@ -32,7 +32,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
-        <Experience />
+        {/* <Experience /> */}
         <Projects />
         <MLModels />
         <CourseRepos />

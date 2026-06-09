@@ -14,44 +14,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Custom cursor element ── */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: #00d4ff;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background 0.2s;
-  box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff40;
-}
-
-.cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #00d4ff80;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.12s ease, width 0.2s, height 0.2s, border-color 0.2s;
-}
-
-body.cursor-hover .cursor-dot {
-  width: 12px;
-  height: 12px;
-  background: #a3ff12;
-  box-shadow: 0 0 15px #a3ff12, 0 0 30px #a3ff1240;
-}
-
-body.cursor-hover .cursor-ring {
-  width: 48px;
-  height: 48px;
-  border-color: #a3ff12;
-}
+/* ── Cursor handled by canvas in CustomCursor.tsx ── */
 
 /* ── Scanline overlay ── */
 .scanlines {

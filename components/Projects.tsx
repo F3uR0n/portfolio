@@ -9,6 +9,57 @@ import { projects } from "@/data/portfolio";
 
 type GithubMeta = { stars: number };
 
+const PHASE_STYLES: Record<string, { label: string; color: string; border: string }> = {
+  "Current":  { label: "Current",  color: "#00d4ff", border: "#00d4ff40" },
+  "Phase 2":  { label: "Phase 2",  color: "#a855f7", border: "#a855f740" },
+  "Phase 3":  { label: "Phase 3",  color: "#a3ff12", border: "#a3ff1240" },
+};
+
+function ProjectDescription({ text, className }: { text: string; className?: string }) {
+  const lines = text.split("\n").filter((l) => l.trim() !== "");
+  const mainLines: string[] = [];
+  const phaseLines: { key: string; rest: string }[] = [];
+
+  for (const line of lines) {
+    const match = line.match(/^(Current|Phase \d+):\s*(.*)/);
+    if (match) {
+      phaseLines.push({ key: match[1], rest: match[2] });
+    } else {
+      mainLines.push(line);
+    }
+  }
+
+  return (
+    <div className={className}>
+      {mainLines.length > 0 && (
+        <p className="font-mono text-sm text-[#8a8a8a] leading-7 mb-4">
+          {mainLines.join(" ")}
+        </p>
+      )}
+      {phaseLines.length > 0 && (
+        <div className="space-y-2">
+          {phaseLines.map(({ key, rest }) => {
+            const style = PHASE_STYLES[key] ?? { color: "#e0e0e0", border: "#e0e0e020" };
+            return (
+              <div key={key} className="flex items-start gap-2.5">
+                <span
+                  className="font-mono text-xs font-bold tracking-wider shrink-0 mt-0.5 px-1.5 py-0.5 border"
+                  style={{ color: style.color, borderColor: style.border }}
+                >
+                  {key.toUpperCase()}
+                </span>
+                <span className="font-mono text-sm text-[#9ca3af] leading-relaxed">
+                  {rest}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function extractOwnerRepo(url: string): [string, string] | null {
   const m = url.match(/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?(?:\/.*)?$/);
   return m ? [m[1], m[2]] : null;
@@ -125,9 +176,7 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    <p className="font-mono text-sm text-[#6b7280] leading-relaxed mb-6">
-                      {project.description}
-                    </p>
+                    <ProjectDescription text={project.description} className="mb-6" />
                   </div>
 
                   <div className="flex flex-wrap gap-2">
@@ -205,7 +254,7 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-                <p className="font-mono text-xs text-[#6b7280] leading-relaxed mb-4">
+                <p className="font-mono text-xs text-[#6b7280] leading-relaxed mb-4 whitespace-pre-line">
                   {project.description}
                 </p>
               </div>

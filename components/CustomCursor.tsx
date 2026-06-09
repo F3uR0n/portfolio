@@ -1,38 +1,62 @@
 "use client";
 import { useEffect, useRef } from "react";
 
+interface Particle {
+  x: number; y: number;
+  vx: number; vy: number;
+  life: number;
+  decay: number;
+  size: number;
+  color: string;
+}
+
 export default function CustomCursor() {
-  const dotRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const dot = dotRef.current;
-    const ring = ringRef.current;
-    if (!dot || !ring) return;
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext("2d")!;
 
-    let ringX = 0, ringY = 0;
-    let mouseX = 0, mouseY = 0;
-    let animFrame: number;
+    let mx = 0, my = 0;
+    let hover = false;
+    let particles: Particle[] = [];
+    let frame: number;
+    let lx = 0, ly = 0;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const spawn = (x: number, y: number, count: number) => {
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x, y,
+          vx: (Math.random() - 0.5) * 1.4,
+          vy: -(Math.random() * 2.0 + 0.5),
+          life: 1,
+          decay: 0.016 + Math.random() * 0.014,
+          size: Math.random() < 0.25 ? 2 : 1,
+          color: hover ? "#a3ff12" : "#00d4ff",
+        });
+      }
+    };
 
     const onMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      dot.style.left = `${e.clientX}px`;
-      dot.style.top = `${e.clientY}px`;
+      mx = e.clientX;
+      my = e.clientY;
+      const dx = mx - lx, dy = my - ly;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist >= 4) {
+        spawn(mx, my, dist > 20 ? 3 : dist > 10 ? 2 : 1);
+        lx = mx; ly = my;
+      }
     };
 
-    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-
-    const animate = () => {
-      ringX = lerp(ringX, mouseX, 0.12);
-      ringY = lerp(ringY, mouseY, 0.12);
-      ring.style.left = `${ringX}px`;
-      ring.style.top = `${ringY}px`;
-      animFrame = requestAnimationFrame(animate);
-    };
-
-    const onEnter = () => document.body.classList.add("cursor-hover");
-    const onLeave = () => document.body.classList.remove("cursor-hover");
+    const onEnter = () => { hover = true; };
+    const onLeave = () => { hover = false; };
 
     window.addEventListener("mousemove", onMove);
     document.querySelectorAll("a, button, [data-hover]").forEach((el) => {
@@ -40,18 +64,38 @@ export default function CustomCursor() {
       el.addEventListener("mouseleave", onLeave);
     });
 
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // cursor square — zero lag
+      ctx.shadowColor = hover ? "#a3ff12" : "#00d4ff";
+      ctx.shadowBlur = 10;
+      ctx.fillStyle = hover ? "#a3ff12" : "#e0e0e0";
+      ctx.fillRect(mx - 2, my - 2, 4, 4);
+      ctx.shadowBlur = 0;
+
+      particles = particles.filter((p) => p.life > 0);
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.05; // gravity
+        p.life -= p.decay;
+        ctx.globalAlpha = Math.max(0, p.life * p.life);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
+      }
+      ctx.globalAlpha = 1;
+
+      frame = requestAnimationFrame(animate);
+    };
     animate();
 
     return () => {
       window.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(animFrame);
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(frame);
     };
   }, []);
 
-  return (
-    <>
-      <div ref={dotRef} className="cursor-dot" />
-      <div ref={ringRef} className="cursor-ring" />
-    </>
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-[9999]" />;
 }

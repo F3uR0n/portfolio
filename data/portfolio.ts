@@ -16,7 +16,7 @@ export const personalInfo = {
   bio: [
     "Computer Science student at BRAC University with a strong foundation in data structures, algorithms, ML, and software development.",
     "I build things that bridge raw computation and real-world impact from 3D horror survival games rendered with OpenGL to ML pipelines that predict health outcomes.",
-    "Currently deep-diving into AI/ML, system design and modern web technologies. If it compiles, I'll ship it.",
+    "Currently deep-diving into AI/ML, system design and modern web technologies.",
   ],
 };
 
@@ -61,7 +61,10 @@ export const education = [
     period: "Jan 2024 – Present",
     current: true,
     details: [
-      "Strong foundation in DSA, Algorithms, AI/ML, and Software Development",
+      // "CGPA: x.xx/4.00",
+      // "Completed 7 semesters",
+      // "Focus: Software Engineering, Algorithms & AI/ML",
+      // "Dean's List"
     ],
   },
   {
@@ -85,14 +88,14 @@ export const education = [
 ];
 
 export const experience = [
-  {
-    role: "AI / Machine Learning",
-    institution: "BRAC University — CSE422",
-    period: "Fall 2025",
-    description:
-      "Implemented ML pipelines from scratch: data preprocessing, EDA, model training with Decision Tree, KNN, Neural Networks, and K-Means. Evaluated models using accuracy, confusion matrix, and ROC/AUC metrics.",
-    tags: ["Python", "Scikit-Learn", "ML", "AI", "Jupyter"],
-  },
+  // {
+  //   role: "AI / Machine Learning",
+  //   institution: "BRAC University — CSE422",
+  //   period: "Fall 2025",
+  //   description:
+  //     "Implemented ML pipelines from scratch: data preprocessing, EDA, model training with Decision Tree, KNN, Neural Networks, and K-Means. Evaluated models using accuracy, confusion matrix, and ROC/AUC metrics.",
+  //   tags: ["Python", "Scikit-Learn", "ML", "AI", "Jupyter"],
+  // },
 ];
 
 export const courseRepos = [
@@ -158,7 +161,7 @@ export const mlModels = [
     description:
       "Full-stack web application for diabetes risk assessment. Flask backend serves a trained ML model with real-time predictions. Includes healthcare AI features built with scikit-learn.",
     course: "",
-    tech: ["Python", "Flask", "Scikit-Learn", "Healthcare AI"],
+    tech: ["Python", "Scikit-Learn", "NumPy", "Pandas", "Flask", "Healthcare AI"],
     github: "https://github.com/F3uR0n/diabetes-prediction-ml-flask",
     live: "https://diabetes-predictor-7x8i.onrender.com/",
     featured: true,
@@ -183,9 +186,22 @@ export const mlModels = [
 
 export const projects = [
   {
-    name: "Kalo Rituals",
+    name: "CrakUFlix",
     description:
-      "A horror-themed dual survival game built with OpenGL. Real-time 3D rendering, ghost AI with timed visibility and stun states, two-floor level design with teleport pad transitions, first/third-person camera toggle, ritual artifact collection, health system, HUD and difficulty selection.",
+      `Netflix-style course video platform for BRAC University students. Browse lecture recordings across CS courses, watch YouTube unlisted and Google Drive videos in-app, mark videos as watched per Google account, and view aggregate site analytics, all with zero backend or database.
+      \nCurrent: Course browser, video playback, watch tracking, Google auth (BRACU accounts only), Umami analytics\nPhase 2: Interactive Java code simulator for tracing loops and variable state step-by-step\nPhase 3: RAG-powered AI tutor grounded in course lecture content`,
+    tech: ["TypeScript", "Next.js", "tailwindcss"],
+    github: "",
+    live: "https://crak-u-flix.vercel.app/",
+    featured: true,
+    isPrivate: false,
+    inDevelopment: true,
+    screenshot: "/CrakUFlix.png",
+  },
+  {
+    name: "Kalo Rituals - 3D Horror Survival Game",
+    description:
+      "A horror-themed dual survival game built with OpenGL. Real-time 3D rendering, ghost AI with timed visibility and stun states, two-floor level design with teleport pad transitions, first/third-person camera toggle, ritual artifact collection, health system, HUD and difficulty selection. No game engine, built from scratch.",
     tech: ["Python", "OpenGL", "GLUT", "PyOpenGL", "Computer Graphics"],
     github: "https://github.com/F3uR0n/kalo-rituals",
     live: null,
@@ -198,7 +214,7 @@ export const projects = [
     name: "Smart Blood Donor System",
     description:
       "A system to connect blood donors with recipients, streamlining the process of finding compatible donors in emergencies.",
-    tech: ["JavaScript", "Node.js"],
+    tech: ["MySQL", "PHP", "JavaScript", "Node.js"],
     github: "https://github.com/F3uR0n/smart-blood-donor-system",
     live: "https://f3ur0n.42web.io/smart-blood-donor/index.php",
     featured: true,

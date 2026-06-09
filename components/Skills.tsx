@@ -146,7 +146,7 @@ export default function Skills() {
             <div className="cyber-card p-5 space-y-3">
               <div className="font-mono text-xs text-[#00d4ff] tracking-widest mb-3">STACK_SUMMARY</div>
               {[
-                { label: "Total Languages", value: "5+", bar: 60 },
+                { label: "Total Languages", value: "6+", bar: 63 },
                 { label: "Game Skills [R6, Apex, Valorant]", value: "∞", bar: 100 },
                 { label: "Course Repositories", value: "12+", bar: 85 },
                 { label: "ML Libraries", value: "5", bar: 55 },

@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/BrandIcons";
 import { personalInfo } from "@/data/portfolio";
 
@@ -44,7 +44,6 @@ export default function Contact() {
     { icon: GithubIcon, label: "GitHub", value: "F3uR0n", href: personalInfo.github },
     { icon: LinkedinIcon, label: "LinkedIn", value: "farhan-sadik-945571218", href: personalInfo.linkedin },
     { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-    { icon: Phone, label: "Phone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
     { icon: MapPin, label: "Location", value: personalInfo.location, href: null },
   ];
 

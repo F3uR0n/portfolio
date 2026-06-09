@@ -7,7 +7,7 @@ import { personalInfo } from "@/data/portfolio";
 
 const stats = [
   { label: "CS Projects", value: "9+" },
-  { label: "Languages", value: "5+" },
+  { label: "Languages", value: "6+" },
   { label: "Course Repositories", value: "12+" },
   { label: "University", value: "BRAC" },
 ];
@@ -99,7 +99,7 @@ export default function About() {
                 </div>
                 <div className="text-[#a0a0a0] pl-3">Farhan Sadik — CS @ BRAC</div>
                 <div className="pl-3 space-y-1 text-[#a0a0a0]">
-                  <div>• <span className="text-[#a3ff12]">AI / Machine Learning</span></div>
+                  <div>• <span className="text-[#a3ff12]">AI/Machine Learning</span></div>
                   <div>• <span className="text-[#a3ff12]">Computer Graphics & Games</span></div>
                   <div>• <span className="text-[#a3ff12]">System Design & Architecture</span></div>
                 </div>
@@ -112,7 +112,7 @@ export default function About() {
               {/* GIF embed */}
               <div className="relative border-t border-[#1c1c1c] bg-[#080808]">
                 <div className="px-4 py-2 font-mono text-xs text-[#b8b7b7] border-b border-[#1c1c1c]">
-                  When the build breaks at 3am
+                  When the build breaks
                 </div>
                 <div className="flex justify-center p-4">
                   <div className="relative w-full max-w-[300px] aspect-video overflow-hidden">
