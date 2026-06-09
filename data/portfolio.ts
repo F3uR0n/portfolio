@@ -87,7 +87,13 @@ export const education = [
   },
 ];
 
-export const experience = [
+export const experience: {
+  role: string;
+  institution: string;
+  period: string;
+  description: string;
+  tags: string[];
+}[] = [
   // {
   //   role: "AI / Machine Learning",
   //   institution: "BRAC University — CSE422",
